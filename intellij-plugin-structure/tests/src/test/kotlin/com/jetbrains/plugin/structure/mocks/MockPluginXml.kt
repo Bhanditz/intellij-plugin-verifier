@@ -12,6 +12,7 @@ data class PluginXmlBuilder(
     var ideaVersion: String = "",
     var modules: List<String> = emptyList(),
     var depends: List<String> = emptyList(),
+    var productDescriptor: String = "",
     var additionalContent: String = ""
 ) {
 
@@ -24,6 +25,7 @@ data class PluginXmlBuilder(
   $description
   $changeNotes
   $ideaVersion
+  $productDescriptor
   ${modules.map { "<module value=\"$it\"/>" }.joinToString(separator = "\n")}
   ${depends.map { "<depends>$it</depends>" }.joinToString(separator = "\n")}
   $additionalContent
